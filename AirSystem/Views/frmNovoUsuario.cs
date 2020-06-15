@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,6 +31,39 @@ namespace AirSystem.Views
 
         private void frmNovoUsuario_Load(object sender, EventArgs e)
         {
+
+            if (frmLogin.language == 0)
+            {
+                lblName.Text = "Nome";
+                lblSurname.Text = "Sobrenome";
+                lblAddress.Text = "Endereço";
+                lblAddress2.Text = "Número";
+                lblBirth.Text = "Data de Nascimento";
+                lblUser.Text = "Usuário";
+                lblPassword.Text = "Senha";
+                lblConfirmPassword.Text = "Confirmar Senha";
+                btnChange.Text = "Alterar";
+                btnDelete.Text = "Deletar";
+                checkBoxAdmin.Text = "É Admin";
+                btnSignUp.Text = "Cadastrar";
+            }
+            else
+            {
+                lblName.Text = "Name";
+                lblSurname.Text = "Surname";
+                lblAddress.Text = "Address";
+                lblAddress2.Text = "Number";
+                lblBirth.Text = "Birth Date";
+                lblUser.Text = "User";
+                lblPassword.Text = "Password";
+                lblConfirmPassword.Text = "Confirm Password";
+                btnChange.Text = "Change";
+                btnDelete.Text = "Delete";
+                checkBoxAdmin.Text = "It's Admin";
+                btnSignUp.Text = "Sign Up";
+            }
+            
+            
             if(usuario != null)
             {
                 tBoxName.Text = usuario.name;
@@ -40,10 +74,32 @@ namespace AirSystem.Views
                 tBoxPassword.Text = usuario.password;
             }
         }
+        private bool isPasswordRight (string password)
+        {
+            if(password.Length >= 8)
+            {
+                string pattern = "[a-z]{1,}";
+
+                if(Regex.IsMatch(password, pattern))
+                {
+                    pattern = "[A-Z]{1,}";
+
+                    if(Regex.IsMatch(password, pattern))
+                    {
+                        pattern = "[0-9]{1,}";
+
+                        if(Regex.IsMatch(password, pattern))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            //TODO: Address e Address2 não são obrigatórios. Arrumar
             if (!Utils.temCamposVazio(this))
             {
                 UsuarioRepository repository = new UsuarioRepository();
@@ -59,9 +115,9 @@ namespace AirSystem.Views
                         address2 = tBoxAddressNumber.Text,
                         username = tBoxUser.Text,
                         password = tBoxPassword.Text
-                        
                     };
-                    if (tBoxPassword == tBoxConfirmPassword)
+
+                    if (tBoxPassword.Text == tBoxConfirmPassword.Text)
                     {
                         repository.adicionar(usuario);
                         MessageBox.Show("Os dados foram salvos.","Aviso",
@@ -98,41 +154,50 @@ namespace AirSystem.Views
 
         private void frmNovoUsuario_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Deseja fechar o formulário?", "Fechando Formulário",
+            if(frmLogin.language == 0)
+            {
+                if (MessageBox.Show("Deseja fechar o formulário?", "Fechando Formulário",
                 MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-        }
-
-        //TODO: Fazer Input_Leave e Input_Enter
-        private void Input_Leave(object sender, EventArgs e)
-        {
-            picBoxUserPhoto.Visible = false;
-        }
-
-        private void Input_Enter(object sender, EventArgs e)
-        {
-            /*TextBox tbx = sender as TextBox;
-            if (tbx != null)
-            {
-                picBoxUserPhoto.Location = new Point(tbx.Location.X - 5, tbx.Location.Y - 5);
-                picBoxUserPhoto.Size = new Size(tbx.Size.Width + 10, tbx.Size.Height + 10);
-                picBoxUserPhoto.Visible = true;
+                {
+                    e.Cancel = true;
+                }
             }
             else
             {
-
-                DateTimePicker dtp = sender as DateTimePicker;
-
-                if (dtp != null)
+                if (MessageBox.Show("Do you want close this form?", "Closing Form",
+                MessageBoxButtons.YesNo) == DialogResult.No)
                 {
-                    picBoxUserPhoto.Location = new Point(dtp.Location.X - 5, dtp.Location.Y - 5);
-                    picBoxUserPhoto.Size = new Size(dtp.Size.Width + 10, dtp.Size.Height + 10);
-                    picBoxUserPhoto.Visible = true;
+                    e.Cancel = true;
                 }
+            }
+            
+        }
+                
+        private void Input_Enter(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                txt.BackColor = Color.LightYellow;
+                if (txt.Text == "")
+                {
+                    txt.Text = "Digite o seu " + txt.AccessibleName;
+                }
+            }
+        }
 
-            }*/
+        private void Input_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                txt.BackColor = Color.White;
+                string value = txt.Text;
+                if (value.Substring(0, 3) == "Digite o seu")
+                {
+                    txt.Text = "";
+                }
+            }
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -142,7 +207,6 @@ namespace AirSystem.Views
             
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                //Carregar a imagem selecionada no picturebox
                 picBoxUserPhoto.Image = Image.FromFile(ofd.FileName);
             }
         }
@@ -151,7 +215,5 @@ namespace AirSystem.Views
         {
             picBoxUserPhoto.Image = null;
         }
-
-       
     }
 }

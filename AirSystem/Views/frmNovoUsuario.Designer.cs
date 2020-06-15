@@ -108,6 +108,7 @@
             // 
             // tBoxName
             // 
+            this.tBoxName.AccessibleName = "Nome";
             this.tBoxName.Location = new System.Drawing.Point(80, 38);
             this.tBoxName.Name = "tBoxName";
             this.tBoxName.Size = new System.Drawing.Size(172, 20);
@@ -117,6 +118,7 @@
             // 
             // tBoxAddress
             // 
+            this.tBoxAddress.AccessibleName = "Endereço";
             this.tBoxAddress.Location = new System.Drawing.Point(92, 76);
             this.tBoxAddress.Name = "tBoxAddress";
             this.tBoxAddress.Size = new System.Drawing.Size(260, 20);
@@ -126,56 +128,55 @@
             // 
             // tBoxUser
             // 
+            this.tBoxUser.AccessibleName = "Usuário";
             this.tBoxUser.Location = new System.Drawing.Point(162, 154);
             this.tBoxUser.Name = "tBoxUser";
-            this.tBoxUser.Size = new System.Drawing.Size(172, 20);
+            this.tBoxUser.Size = new System.Drawing.Size(212, 20);
             this.tBoxUser.TabIndex = 9;
             this.tBoxUser.Enter += new System.EventHandler(this.Input_Enter);
             this.tBoxUser.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxPassword
             // 
+            this.tBoxPassword.AccessibleName = "";
             this.tBoxPassword.Location = new System.Drawing.Point(162, 193);
             this.tBoxPassword.Name = "tBoxPassword";
-            this.tBoxPassword.Size = new System.Drawing.Size(172, 20);
+            this.tBoxPassword.Size = new System.Drawing.Size(212, 20);
             this.tBoxPassword.TabIndex = 10;
             this.tBoxPassword.UseSystemPasswordChar = true;
-            this.tBoxPassword.Enter += new System.EventHandler(this.Input_Enter);
-            this.tBoxPassword.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxConfirmPassword
             // 
+            this.tBoxConfirmPassword.AccessibleName = "";
             this.tBoxConfirmPassword.Location = new System.Drawing.Point(162, 232);
             this.tBoxConfirmPassword.Name = "tBoxConfirmPassword";
-            this.tBoxConfirmPassword.Size = new System.Drawing.Size(172, 20);
+            this.tBoxConfirmPassword.Size = new System.Drawing.Size(212, 20);
             this.tBoxConfirmPassword.TabIndex = 11;
             this.tBoxConfirmPassword.UseSystemPasswordChar = true;
-            this.tBoxConfirmPassword.Enter += new System.EventHandler(this.Input_Enter);
-            this.tBoxConfirmPassword.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxSurname
             // 
+            this.tBoxSurname.AccessibleName = "Sobrenome";
             this.tBoxSurname.Location = new System.Drawing.Point(365, 38);
             this.tBoxSurname.Name = "tBoxSurname";
-            this.tBoxSurname.Size = new System.Drawing.Size(160, 20);
+            this.tBoxSurname.Size = new System.Drawing.Size(195, 20);
             this.tBoxSurname.TabIndex = 12;
             this.tBoxSurname.Enter += new System.EventHandler(this.Input_Enter);
             this.tBoxSurname.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxAddressNumber
             // 
+            this.tBoxAddressNumber.AccessibleName = "Número de Residência";
             this.tBoxAddressNumber.Location = new System.Drawing.Point(434, 76);
             this.tBoxAddressNumber.Name = "tBoxAddressNumber";
-            this.tBoxAddressNumber.Size = new System.Drawing.Size(91, 20);
+            this.tBoxAddressNumber.Size = new System.Drawing.Size(126, 20);
             this.tBoxAddressNumber.TabIndex = 13;
-            this.tBoxAddressNumber.Enter += new System.EventHandler(this.Input_Enter);
-            this.tBoxAddressNumber.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(165, 350);
+            this.btnSignUp.Location = new System.Drawing.Point(162, 350);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(169, 32);
+            this.btnSignUp.Size = new System.Drawing.Size(212, 32);
             this.btnSignUp.TabIndex = 14;
             this.btnSignUp.Text = "Cadastrar";
             this.btnSignUp.UseVisualStyleBackColor = true;
@@ -226,7 +227,7 @@
             this.dateTimeBirth.Checked = false;
             this.dateTimeBirth.Location = new System.Drawing.Point(162, 110);
             this.dateTimeBirth.Name = "dateTimeBirth";
-            this.dateTimeBirth.Size = new System.Drawing.Size(172, 20);
+            this.dateTimeBirth.Size = new System.Drawing.Size(212, 20);
             this.dateTimeBirth.TabIndex = 19;
             this.dateTimeBirth.Enter += new System.EventHandler(this.Input_Enter);
             this.dateTimeBirth.Leave += new System.EventHandler(this.Input_Leave);

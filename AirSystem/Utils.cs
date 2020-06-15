@@ -9,6 +9,7 @@ namespace AirSystem
 {
     class Utils
     {
+        //TODO: Address e Address2 não são obrigatórios. Arrumar
         public static bool temCamposVazio(Form form)
         {
             foreach (Control c in form.Controls)
