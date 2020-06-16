@@ -25,6 +25,7 @@ namespace AirSystem.Views
             if (frmLogin.language == 0)
             {
                 //Labels
+                lblNameFilter.Text = "Nome:";
                 lblName.Text = "Nome:";
                 lblSurname.Text = "Sobrenome:";
                 lblAddress.Text = "Endereço:";
@@ -44,6 +45,7 @@ namespace AirSystem.Views
             else
             {
                 //Labels
+                lblNameFilter.Text = "Name:";
                 lblName.Text = "Name:";
                 lblSurname.Text = "Surname:";
                 lblAddress.Text = "Address:";
@@ -123,10 +125,26 @@ namespace AirSystem.Views
                 surname = Sobrenome,
             };
 
-            //TODO: Corrigir. Não chamr a tela
+            //TODO: Corrigir. Não chamar a tela
             new frmNovoUsuario(usuario).ShowDialog();
             //chama o método para carregar o datagrid
             carregaLista();
+        }
+
+        private void btnChangePicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Arquivos de imagens(*.jpg;*.png)|*.jpg;*.png";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(ofd.FileName);
+            }
+        }
+
+        private void btnDeletePicture_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
         }
     }
 }

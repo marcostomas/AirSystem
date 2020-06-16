@@ -82,6 +82,7 @@
             this.Name = "frmPrincipalUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Principal - Usuário";
+            this.Load += new System.EventHandler(this.frmPrincipalUser_Load);
             this.ResumeLayout(false);
 
         }

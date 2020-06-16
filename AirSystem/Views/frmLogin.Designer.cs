@@ -43,6 +43,7 @@
             this.lblLanguage = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnEnterUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxUserLock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -123,16 +124,16 @@
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 8;
-            this.btnEnter.Text = "Entrar";
+            this.btnEnter.Text = "Entrar Admin";
             this.btnEnter.UseVisualStyleBackColor = true;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // btnExit
             // 
             this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(559, 410);
+            this.btnExit.Location = new System.Drawing.Point(712, 410);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(85, 23);
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Sair";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -141,7 +142,7 @@
             // btnNewUser
             // 
             this.btnNewUser.ForeColor = System.Drawing.Color.Black;
-            this.btnNewUser.Location = new System.Drawing.Point(691, 410);
+            this.btnNewUser.Location = new System.Drawing.Point(712, 360);
             this.btnNewUser.Name = "btnNewUser";
             this.btnNewUser.Size = new System.Drawing.Size(85, 23);
             this.btnNewUser.TabIndex = 10;
@@ -176,6 +177,17 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnEnterUser
+            // 
+            this.btnEnterUser.ForeColor = System.Drawing.Color.Black;
+            this.btnEnterUser.Location = new System.Drawing.Point(566, 410);
+            this.btnEnterUser.Name = "btnEnterUser";
+            this.btnEnterUser.Size = new System.Drawing.Size(84, 23);
+            this.btnEnterUser.TabIndex = 12;
+            this.btnEnterUser.Text = "Entrar Usuário";
+            this.btnEnterUser.UseVisualStyleBackColor = true;
+            this.btnEnterUser.Click += new System.EventHandler(this.btnEnterUser_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnEnter;
@@ -183,6 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(832, 450);
+            this.Controls.Add(this.btnEnterUser);
             this.Controls.Add(this.lblLanguage);
             this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.btnExit);
@@ -223,5 +236,6 @@
         private System.Windows.Forms.Label lblLanguage;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnEnterUser;
     }
 }

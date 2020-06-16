@@ -117,16 +117,34 @@ namespace AirSystem.Views
                         password = tBoxPassword.Text
                     };
 
-                    if (tBoxPassword.Text == tBoxConfirmPassword.Text)
+                    if (tBoxPassword.Text == tBoxConfirmPassword.Text && isPasswordRight(tBoxPassword.Text))
                     {
                         repository.adicionar(usuario);
-                        MessageBox.Show("Os dados foram salvos.","Aviso",
-                         MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBox.Show("Os dados foram salvos.", "Aviso",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("As senhas não conferem. Os dados não foram cadastrados.","Aviso",
-                            MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        if(tBoxPassword.Text == tBoxConfirmPassword.Text)
+                        {
+                            MessageBox.Show("As senhas não atendem aos padrões de ter, no mínimo," +
+                                "8 caracteres com, pelo menos: 1 Letra Minúscula, 1 Letra Maiúscula e 1 Número." +
+                                "Os dados não foram cadastrados.", "Aviso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (isPasswordRight(tBoxPassword.Text))
+                        {
+                            MessageBox.Show("As senhas não conferem, mas atendem aos requisitos. " +
+                                "Verifique e tente novamente. Os dados não foram cadastrados.", "Aviso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("As senhas não conferem e não atendem aos padrões de ter, no mínimo," +
+                                "8 caracteres com, pelo menos: 1 Letra Minúscula, 1 Letra Maiúscula e 1 Número." +
+                                "Os dados não foram cadastrados.", "Aviso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
                 else
@@ -181,7 +199,7 @@ namespace AirSystem.Views
                 txt.BackColor = Color.LightYellow;
                 if (txt.Text == "")
                 {
-                    txt.Text = "Digite o seu " + txt.AccessibleName;
+                    txt.Text = "Digite - " + txt.AccessibleName;
                 }
             }
         }
@@ -193,7 +211,7 @@ namespace AirSystem.Views
             {
                 txt.BackColor = Color.White;
                 string value = txt.Text;
-                if (value.Substring(0, 3) == "Digite o seu")
+                if (value.Substring(0,3) == "Digite - ")
                 {
                     txt.Text = "";
                 }

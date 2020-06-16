@@ -32,7 +32,7 @@ namespace AirSystem.Views
             new frmNovoUsuario().ShowDialog();
         }
 
-        public bool isAdmin(usuarios)
+        /*public bool isAdmin(usuarios)
         {
             usuario = usuarios;
             
@@ -42,15 +42,16 @@ namespace AirSystem.Views
             }
 
             return false;
-        }
+        }*/
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
             language = cBoxLanguage.SelectedIndex;
-            List<Usuario> usuariosBuscados = usuarios.buscarTodos();
+            new frmPrincipalAdmin().ShowDialog();
+            //List<Usuario> usuariosBuscados = usuarios.buscarTodos();
 
             //TODO: Fazer o If Puxar do Banco de Dados. E validar, pelo nome, se é admin ou não            
-            /*if (tBoxUser.Equals(usuariosBuscados.name))/// && isAdmin()
+            /*if (tBoxUser.Equals(usuariosBuscados.name)&& isAdmin())
             {
                 MessageBox.Show($"Bem Vindo, {usuariosBuscados.name}", "Entrada");
                 new frmPrincipalAdmin().ShowDialog();
@@ -79,6 +80,12 @@ namespace AirSystem.Views
         private void frmLogin_Load(object sender, EventArgs e)
         {
             timer1.Start();
+        }
+
+        private void btnEnterUser_Click(object sender, EventArgs e)
+        {
+            language = cBoxLanguage.SelectedIndex;
+            new frmPrincipalUser().ShowDialog();
         }
     }
 }

@@ -98,6 +98,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(587, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(330, 139);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -109,6 +110,7 @@
             this.btnChangePicture.TabIndex = 5;
             this.btnChangePicture.Text = "Alterar Foto";
             this.btnChangePicture.UseVisualStyleBackColor = true;
+            this.btnChangePicture.Click += new System.EventHandler(this.btnChangePicture_Click);
             // 
             // btnDeletePicture
             // 
@@ -118,6 +120,7 @@
             this.btnDeletePicture.TabIndex = 6;
             this.btnDeletePicture.Text = "Deletar Foto";
             this.btnDeletePicture.UseVisualStyleBackColor = true;
+            this.btnDeletePicture.Click += new System.EventHandler(this.btnDeletePicture_Click);
             // 
             // lblName
             // 

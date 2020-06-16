@@ -123,8 +123,6 @@
             this.tBoxAddress.Name = "tBoxAddress";
             this.tBoxAddress.Size = new System.Drawing.Size(260, 20);
             this.tBoxAddress.TabIndex = 7;
-            this.tBoxAddress.Enter += new System.EventHandler(this.Input_Enter);
-            this.tBoxAddress.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxUser
             // 
