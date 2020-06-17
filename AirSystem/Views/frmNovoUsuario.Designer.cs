@@ -123,6 +123,8 @@
             this.tBoxAddress.Name = "tBoxAddress";
             this.tBoxAddress.Size = new System.Drawing.Size(260, 20);
             this.tBoxAddress.TabIndex = 7;
+            this.tBoxAddress.Enter += new System.EventHandler(this.Input_Enter);
+            this.tBoxAddress.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxUser
             // 
@@ -136,21 +138,25 @@
             // 
             // tBoxPassword
             // 
-            this.tBoxPassword.AccessibleName = "";
+            this.tBoxPassword.AccessibleName = "Senha";
             this.tBoxPassword.Location = new System.Drawing.Point(162, 193);
             this.tBoxPassword.Name = "tBoxPassword";
             this.tBoxPassword.Size = new System.Drawing.Size(212, 20);
             this.tBoxPassword.TabIndex = 10;
             this.tBoxPassword.UseSystemPasswordChar = true;
+            this.tBoxPassword.Enter += new System.EventHandler(this.InputSenha_Enter);
+            this.tBoxPassword.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxConfirmPassword
             // 
-            this.tBoxConfirmPassword.AccessibleName = "";
+            this.tBoxConfirmPassword.AccessibleName = "Confirmação da Senha";
             this.tBoxConfirmPassword.Location = new System.Drawing.Point(162, 232);
             this.tBoxConfirmPassword.Name = "tBoxConfirmPassword";
             this.tBoxConfirmPassword.Size = new System.Drawing.Size(212, 20);
             this.tBoxConfirmPassword.TabIndex = 11;
             this.tBoxConfirmPassword.UseSystemPasswordChar = true;
+            this.tBoxConfirmPassword.Enter += new System.EventHandler(this.InputSenha_Enter);
+            this.tBoxConfirmPassword.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // tBoxSurname
             // 
@@ -164,11 +170,13 @@
             // 
             // tBoxAddressNumber
             // 
-            this.tBoxAddressNumber.AccessibleName = "Número de Residência";
+            this.tBoxAddressNumber.AccessibleName = "Nº de Residência";
             this.tBoxAddressNumber.Location = new System.Drawing.Point(434, 76);
             this.tBoxAddressNumber.Name = "tBoxAddressNumber";
             this.tBoxAddressNumber.Size = new System.Drawing.Size(126, 20);
             this.tBoxAddressNumber.TabIndex = 13;
+            this.tBoxAddressNumber.Enter += new System.EventHandler(this.Input_Enter);
+            this.tBoxAddressNumber.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // btnSignUp
             // 

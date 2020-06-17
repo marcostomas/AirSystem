@@ -17,6 +17,8 @@ namespace AirSystem.Models
         public string name { get; set; }
         public string surname { get; set; }
 
+        public DateTime birthDate { get; set; }
+
         public string address { get; set; }
         public string address2 { get; set; }
 

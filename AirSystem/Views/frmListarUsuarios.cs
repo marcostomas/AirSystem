@@ -14,6 +14,9 @@ namespace AirSystem.Views
 {
     public partial class frmListarUsuarios : Form
     {
+        UsuarioRepository repository = new UsuarioRepository();
+        Usuario usuario = new Usuario();
+
         public frmListarUsuarios()
         {
             InitializeComponent();
@@ -103,32 +106,35 @@ namespace AirSystem.Views
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Define o número de colunas
-            dataGridView1.ColumnCount = 3;
-            
-            //Define se os header estão visíveis
-            dataGridView1.ColumnHeadersVisible = true;
-
-            // Set the column header style.
-            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
-
             DataGridViewRow linha = dataGridView1.Rows[e.RowIndex];
 
-            int ID = Convert.ToInt32(linha.Cells[0].Value.ToString());
             string Nome = linha.Cells[1].Value.ToString();
             string Sobrenome = linha.Cells[2].Value.ToString();
+            string Endereco = linha.Cells[3].Value.ToString();
+            string DataNascimento = linha.Cells[4].Value.ToString();
+            string Usuario = linha.Cells[6].Value.ToString();
+            string Senha = linha.Cells[7].Value.ToString();
+            string Numero = linha.Cells[5].Value.ToString();
 
-            Usuario usuario = new Usuario
-            {
-                ID = ID,
-                name = Nome,
-                surname = Sobrenome,
-            };
+            int codigo = Convert.ToInt32(linha.Cells[0].Value.ToString());
 
-            //TODO: Corrigir. Não chamar a tela
-            new frmNovoUsuario(usuario).ShowDialog();
-            //chama o método para carregar o datagrid
-            carregaLista();
+            usuario.ID = codigo;
+            usuario.name = Nome;
+            usuario.surname = Sobrenome;
+            usuario.address = Endereco;
+            usuario.birthDate = Convert.ToDateTime(DataNascimento);
+            usuario.address2 = Numero;
+            usuario.username = Usuario;
+            usuario.password = Senha;
+
+
+            textBoxName.Text = usuario.name;
+            textBoxSurname.Text = usuario.surname;
+            textBoxAddress.Text = usuario.address;
+            dateTimePicker1.Value = usuario.birthDate;
+            textBoxNumber.Text = usuario.address2.ToString();
+            textBoxUser.Text = usuario.username;
+            textBoxPassword.Text = usuario.password;
         }
 
         private void btnChangePicture_Click(object sender, EventArgs e)
@@ -145,6 +151,43 @@ namespace AirSystem.Views
         private void btnDeletePicture_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (frmLogin.language == 1)
+            {
+                DialogResult dr = MessageBox.Show("Deleting user. There's no back. Select Sim to Confirm", "Warning"
+                    , MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    int ID = Convert.ToInt32(usuario.ID.ToString());
+
+                    repository.deletar(ID);
+
+                    carregaLista();
+                }
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show("Excluindo o usuário. Esta ação é permanente. Selecione Sim para confirmar?", "Atenção"
+                       , MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    int ID = Convert.ToInt32(usuario.ID.ToString());
+
+                    repository.deletar(ID);
+
+                    carregaLista();
+                }
+            }
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            new frmNovoUsuario(usuario).ShowDialog();
+
+            carregaLista();
         }
     }
 }

@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Acesso.cs">
+      <DependentUpon>dataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\dataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\dataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\dataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Usuarios.cs">
+      <DependentUpon>dataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +135,14 @@
     <EmbeddedResource Include="Views\frmPrincipalUser.resx">
       <DependentUpon>frmPrincipalUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Database\dataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\dataBase.edmx.diagram">
+      <DependentUpon>dataBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,9 +158,22 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Database\dataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dataBase.Context.cs</LastGenOutput>
+      <DependentUpon>dataBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="Database\dataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataBase.edmx</DependentUpon>
+      <LastGenOutput>dataBase.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\blog-wp-login.png" />
     <Content Include="Resources\illuminati.jpg" />
     <Content Include="Resources\microsoft.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

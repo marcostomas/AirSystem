@@ -70,6 +70,7 @@ namespace AirSystem.Views
                 tBoxSurname.Text = usuario.surname;
                 tBoxAddress.Text = usuario.address;
                 tBoxAddressNumber.Text = usuario.address2;
+                dateTimeBirth.Value = usuario.birthDate;
                 tBoxUser.Text = usuario.username;
                 tBoxPassword.Text = usuario.password;
             }
@@ -113,6 +114,7 @@ namespace AirSystem.Views
                         surname = tBoxSurname.Text,
                         address = tBoxAddress.Text,
                         address2 = tBoxAddressNumber.Text,
+                        birthDate = dateTimeBirth.Value,
                         username = tBoxUser.Text,
                         password = tBoxPassword.Text
                     };
@@ -153,6 +155,7 @@ namespace AirSystem.Views
                     this.usuario.surname = tBoxSurname.Text;
                     this.usuario.address = tBoxAddress.Text;
                     this.usuario.address2 = tBoxAddressNumber.Text;
+                    this.usuario.birthDate = dateTimeBirth.Value;
                     this.usuario.username = tBoxUser.Text;
                     this.usuario.password = tBoxPassword.Text;
 
@@ -210,11 +213,6 @@ namespace AirSystem.Views
             if (txt != null)
             {
                 txt.BackColor = Color.White;
-                string value = txt.Text;
-                if (value.Substring(0,3) == "Digite - ")
-                {
-                    txt.Text = "";
-                }
             }
         }
 
@@ -232,6 +230,15 @@ namespace AirSystem.Views
         private void btnDelete_Click(object sender, EventArgs e)
         {
             picBoxUserPhoto.Image = null;
+        }
+
+        private void InputSenha_Enter(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                txt.BackColor = Color.LightYellow;
+            }
         }
     }
 }

@@ -12,3 +12,8 @@ C:\Users\marcos\Documents\AirSystem\AirSystem\obj\Debug\AirSystem.Views.frmNovoU
 C:\Users\marcos\Documents\AirSystem\AirSystem\obj\Debug\AirSystem.Views.frmPrincipalAdmin.resources
 C:\Users\marcos\Documents\AirSystem\AirSystem\obj\Debug\AirSystem.Views.frmPrincipalUser.resources
 C:\Users\marcos\Documents\AirSystem\AirSystem\obj\Debug\AirSystem.Views.frmListarUsuarios.resources
+C:\Users\marcos\Documents\AirSystem\AirSystem\bin\Debug\EntityFramework.dll
+C:\Users\marcos\Documents\AirSystem\AirSystem\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\marcos\Documents\AirSystem\AirSystem\bin\Debug\EntityFramework.xml
+C:\Users\marcos\Documents\AirSystem\AirSystem\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\marcos\Documents\AirSystem\AirSystem\obj\Debug\AirSystem.csproj.CopyComplete

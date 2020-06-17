@@ -258,6 +258,7 @@
             this.btnEditUser.TabIndex = 24;
             this.btnEditUser.Text = "Alterar Usuário";
             this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnDeleteUser
             // 
@@ -267,6 +268,7 @@
             this.btnDeleteUser.TabIndex = 25;
             this.btnDeleteUser.Text = "Deletar Usuário";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // btnBack
             // 
